@@ -15,6 +15,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        this.bar.setVisible(false);
     }
 
     /**
@@ -26,18 +27,90 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        container = new javax.swing.JPanel();
+        central = new javax.swing.JPanel();
+        usernameLabel = new javax.swing.JLabel();
+        username = new javax.swing.JTextField();
+        passwordLabel = new javax.swing.JLabel();
+        password = new javax.swing.JPasswordField();
+        enterButton = new javax.swing.JButton();
+        registerButton = new javax.swing.JButton();
+        bar = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(java.awt.Color.white);
+        setResizable(false);
+
+        container.setBackground(java.awt.Color.white);
+        container.setLayout(new java.awt.BorderLayout());
+
+        central.setBackground(java.awt.Color.white);
+
+        usernameLabel.setBackground(java.awt.Color.white);
+        usernameLabel.setForeground(java.awt.Color.black);
+        usernameLabel.setText("Username:");
+
+        passwordLabel.setBackground(java.awt.Color.white);
+        passwordLabel.setForeground(java.awt.Color.black);
+        passwordLabel.setText("Password:");
+
+        enterButton.setText("Enter");
+
+        registerButton.setText("Register");
+
+        javax.swing.GroupLayout centralLayout = new javax.swing.GroupLayout(central);
+        central.setLayout(centralLayout);
+        centralLayout.setHorizontalGroup(
+            centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centralLayout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addGroup(centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(enterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(centralLayout.createSequentialGroup()
+                        .addGroup(centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(passwordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(usernameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(username)
+                            .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))))
+                .addContainerGap(144, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centralLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(registerButton)
+                .addGap(17, 17, 17))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        centralLayout.setVerticalGroup(
+            centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centralLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(registerButton)
+                .addGap(106, 106, 106)
+                .addGroup(centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usernameLabel)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLabel)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(enterButton)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
+
+        container.add(central, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(container, java.awt.BorderLayout.CENTER);
+
+        jMenu1.setText("File");
+        bar.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        bar.add(jMenu2);
+
+        setJMenuBar(bar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +151,16 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar bar;
+    private javax.swing.JPanel central;
+    private javax.swing.JPanel container;
+    private javax.swing.JButton enterButton;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JButton registerButton;
+    private javax.swing.JTextField username;
+    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }
