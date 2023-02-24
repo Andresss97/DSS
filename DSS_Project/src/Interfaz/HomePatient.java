@@ -4,8 +4,14 @@
  */
 package Interfaz;
 
+import Conexion.Conector;
+import Conexion.QuerysInsert;
 import Pojos.Patient;
+import Pojos.Test;
 import java.awt.BorderLayout;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -19,20 +25,22 @@ public class HomePatient extends javax.swing.JPanel {
     /**
      * Creates new form HomePatient
      */
-    private Patient patient;
     private int i;
     private JFrame frame;
+    private Test test;
+    private Conector con;
     
-    public HomePatient(Patient patient, JFrame frame) {
+    public HomePatient(JFrame frame, Conector con) {
         initComponents();
         this.backButton.setVisible(false);
         this.nextButton.setVisible(false);
-        this.patient = patient;
-        this.labelName.setText(this.patient.getName());
-        this.labelSurname.setText(this.patient.getSurname());
-        this.labelAge.setText(String.valueOf(this.patient.getAge()));
+        this.labelName.setText(Principal.patient.getName());
+        this.labelSurname.setText(Principal.patient.getSurname());
+        this.labelAge.setText(String.valueOf(Principal.patient.getAge()));
         this.i = 1;
         this.frame = frame;
+        this.test = new Test();
+        this.con = con;
     }
 
     /**
@@ -303,8 +311,31 @@ public class HomePatient extends javax.swing.JPanel {
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
+        if(this.checkQuestionAnswered(i) == false) {
+            JOptionPane.showMessageDialog(this, "You have to answer the question before you advance");
+            return;
+        }
         if (this.i == 12) {
-            JOptionPane.showMessageDialog(this, "You are on the last question of the test");
+            QuerysInsert qi = new QuerysInsert(this.con);
+            try {
+                qi.insertTest(Principal.test, Principal.patient);
+            } catch (SQLException ex) {
+                Logger.getLogger(HomePatient.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this, "Here are your results", "Results",1);
+            Principal.patient.getTests().add(Principal.test);
+            Principal.test = new Test();
+            this.center.removeAll();
+            this.center.repaint();
+            
+            this.backButton.setVisible(false);
+            this.nextButton.setVisible(false);
+            
+            JPanel panel = new HomePatient(this.frame, this.con);
+            this.center.add(panel);
+            this.center.setVisible(true);
+            this.frame.pack();
+            
         } else {
             this.i++;
             switch (this.i) {
@@ -412,7 +443,7 @@ public class HomePatient extends javax.swing.JPanel {
                 case 12: {
                     this.center.removeAll();
                     this.center.repaint();
-
+                    this.nextButton.setText("Finish");
                     JPanel panel12 = new Test12();
                     this.center.add(panel12, BorderLayout.CENTER);
                     this.center.setVisible(true);
@@ -426,7 +457,97 @@ public class HomePatient extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_nextButtonActionPerformed
 
-
+    private boolean checkQuestionAnswered(int i) {
+        switch (i) {
+            case 1: {
+                if (Principal.test.getQuestion_1().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 2: {
+                if (Principal.test.getQuestion_2().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 3: {
+                if (Principal.test.getQuestion_3().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 4: {
+                if (Principal.test.getQuestion_4().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 5: {
+                if (Principal.test.getQuestion_5().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 6: {
+                if (Principal.test.getQuestion_6().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 7: {
+                if (Principal.test.getQuestion_7().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 8: {
+                if (Principal.test.getQuestion_8().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 9: {
+                if (Principal.test.getQuestion_9().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 10: {
+                if (Principal.test.getQuestion_10().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 11: {
+                if (Principal.test.getQuestion_11().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            case 12: {
+                if (Principal.test.getQuestion_12().isEmpty()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            default : {
+                return true;
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel bottom;

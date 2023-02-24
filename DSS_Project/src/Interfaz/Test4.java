@@ -15,6 +15,12 @@ public class Test4 extends javax.swing.JPanel {
      */
     public Test4() {
         initComponents();
+        if(Principal.test.getQuestion_4().equals("yes")) {
+               this.buttonYes.setSelected(true);
+        }
+        else if(Principal.test.getQuestion_4().equals("no")) {
+            this.buttonNo.setSelected(true);
+        }
     }
 
     /**
@@ -41,11 +47,21 @@ public class Test4 extends javax.swing.JPanel {
         yesNoGroup.add(buttonYes);
         buttonYes.setForeground(java.awt.Color.black);
         buttonYes.setText("Yes");
+        buttonYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonYesActionPerformed(evt);
+            }
+        });
 
         buttonNo.setBackground(java.awt.Color.white);
         yesNoGroup.add(buttonNo);
         buttonNo.setForeground(java.awt.Color.black);
         buttonNo.setText("No");
+        buttonNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,6 +90,20 @@ public class Test4 extends javax.swing.JPanel {
                 .addContainerGap(175, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonYesActionPerformed
+        // TODO add your handling code here:
+        if(buttonYes.isSelected()) {
+            Principal.test.setQuestion_4("yes");
+        }
+    }//GEN-LAST:event_buttonYesActionPerformed
+
+    private void buttonNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNoActionPerformed
+        // TODO add your handling code here:
+        if(buttonNo.isSelected()) {
+            Principal.test.setQuestion_4("no");
+        }
+    }//GEN-LAST:event_buttonNoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

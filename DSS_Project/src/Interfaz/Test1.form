@@ -80,6 +80,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Yes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonYesActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="buttonNo">
       <Properties>
@@ -94,6 +97,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="No"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

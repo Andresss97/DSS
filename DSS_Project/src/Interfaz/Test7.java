@@ -15,6 +15,15 @@ public class Test7 extends javax.swing.JPanel {
      */
     public Test7() {
         initComponents();
+        if(Principal.test.getQuestion_7().equals("slight")) {
+               this.buttonSlight.setSelected(true);
+        }
+        else if(Principal.test.getQuestion_7().equals("moderate")) {
+            this.buttonModerate.setSelected(true);
+        }
+        else if(Principal.test.getQuestion_7().equals("severe")) {
+            this.buttonSevere.setSelected(true);
+        }
     }
 
     /**
@@ -42,16 +51,31 @@ public class Test7 extends javax.swing.JPanel {
         yesNoGroup.add(buttonSlight);
         buttonSlight.setForeground(java.awt.Color.black);
         buttonSlight.setText("Slight");
+        buttonSlight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSlightActionPerformed(evt);
+            }
+        });
 
         buttonModerate.setBackground(java.awt.Color.white);
         yesNoGroup.add(buttonModerate);
         buttonModerate.setForeground(java.awt.Color.black);
         buttonModerate.setText("Moderate");
+        buttonModerate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonModerateActionPerformed(evt);
+            }
+        });
 
         buttonSevere.setBackground(java.awt.Color.white);
         yesNoGroup.add(buttonSevere);
         buttonSevere.setForeground(java.awt.Color.black);
         buttonSevere.setText("Severe");
+        buttonSevere.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSevereActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -83,6 +107,27 @@ public class Test7 extends javax.swing.JPanel {
                 .addContainerGap(175, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonSlightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSlightActionPerformed
+        // TODO add your handling code here:
+        if(buttonSlight.isSelected()) {
+            Principal.test.setQuestion_7("slight");
+        }
+    }//GEN-LAST:event_buttonSlightActionPerformed
+
+    private void buttonModerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModerateActionPerformed
+        // TODO add your handling code here:
+        if(buttonModerate.isSelected()) {
+            Principal.test.setQuestion_7("moderate");
+        }
+    }//GEN-LAST:event_buttonModerateActionPerformed
+
+    private void buttonSevereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSevereActionPerformed
+        // TODO add your handling code here:
+        if(buttonSevere.isSelected()) {
+            Principal.test.setQuestion_7("severe");
+        }
+    }//GEN-LAST:event_buttonSevereActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

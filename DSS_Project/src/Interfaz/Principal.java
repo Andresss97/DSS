@@ -8,6 +8,7 @@ import Conexion.Conector;
 import Conexion.DBCreation;
 import Conexion.QuerysSelect;
 import Pojos.Patient;
+import Pojos.Test;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.File;
@@ -25,7 +26,8 @@ import javax.swing.JPanel;
 public class Principal extends javax.swing.JFrame {
     
     private Conector con;
-    public Patient patient;
+    public static Patient patient;
+    public static Test test;
     /**
      * Creates new form Principal
      */
@@ -42,6 +44,8 @@ public class Principal extends javax.swing.JFrame {
             this.con.connect();
         }
         this.setLocationRelativeTo(null);
+        test = new Test();
+        this.setTitle("DSS - Epilepsy project");
     }
 
     /**
@@ -190,7 +194,7 @@ public class Principal extends javax.swing.JFrame {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        JPanel panel = new HomePatient(this.patient, this);
+        JPanel panel = new HomePatient(this, this.con);
         this.container.add(panel, BorderLayout.CENTER);
         panel.setVisible(true);
         this.bar.setVisible(true);
@@ -210,7 +214,7 @@ public class Principal extends javax.swing.JFrame {
         this.container.removeAll();
         this.container.repaint();
         
-        JPanel panel = new HomePatient(this.patient, this);
+        JPanel panel = new HomePatient(this, this.con);
         this.container.add(panel, BorderLayout.CENTER);
         panel.setVisible(true);
         this.bar.setVisible(true);

@@ -82,6 +82,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Slight"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSlightActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="buttonModerate">
       <Properties>
@@ -96,6 +99,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Moderate"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonModerateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="buttonSevere">
       <Properties>
@@ -110,6 +116,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Severe"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSevereActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
