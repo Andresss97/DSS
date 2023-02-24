@@ -145,6 +145,11 @@ public class Principal extends javax.swing.JFrame {
         logMenu.setText("Menu");
 
         homeButton.setText("Home");
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButtonActionPerformed(evt);
+            }
+        });
         logMenu.add(homeButton);
 
         signOffButton.setText("Sign off");
@@ -199,6 +204,18 @@ public class Principal extends javax.swing.JFrame {
         frame.setVisible(true);
         pack();
     }//GEN-LAST:event_signOffButtonActionPerformed
+
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+        // TODO add your handling code here:
+        this.container.removeAll();
+        this.container.repaint();
+        
+        JPanel panel = new HomePatient(this.patient, this);
+        this.container.add(panel, BorderLayout.CENTER);
+        panel.setVisible(true);
+        this.bar.setVisible(true);
+        pack();
+    }//GEN-LAST:event_homeButtonActionPerformed
 
     /**
      * @param args the command line arguments
