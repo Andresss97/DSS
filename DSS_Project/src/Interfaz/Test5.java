@@ -35,7 +35,7 @@ public class Test5 extends javax.swing.JPanel {
         setForeground(java.awt.Color.black);
 
         jLabel1.setForeground(java.awt.Color.black);
-        jLabel1.setText("Did you suffer episodes of temporal absencerecently?");
+        jLabel1.setText("Did you suffer episodes of temporal absence recently?");
 
         buttonYes.setBackground(java.awt.Color.white);
         yesNoGroup.add(buttonYes);
@@ -61,7 +61,7 @@ public class Test5 extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addComponent(jLabel1)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -6,6 +6,8 @@ package Interfaz;
 
 import Pojos.Patient;
 import java.awt.BorderLayout;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -19,8 +21,9 @@ public class HomePatient extends javax.swing.JPanel {
      */
     private Patient patient;
     private int i;
+    private JFrame frame;
     
-    public HomePatient(Patient patient) {
+    public HomePatient(Patient patient, JFrame frame) {
         initComponents();
         this.backButton.setVisible(false);
         this.nextButton.setVisible(false);
@@ -28,7 +31,8 @@ public class HomePatient extends javax.swing.JPanel {
         this.labelName.setText(this.patient.getName());
         this.labelSurname.setText(this.patient.getSurname());
         this.labelAge.setText(String.valueOf(this.patient.getAge()));
-        this.i = 0;
+        this.i = 1;
+        this.frame = frame;
     }
 
     /**
@@ -60,8 +64,18 @@ public class HomePatient extends javax.swing.JPanel {
         bottom.setBackground(java.awt.Color.white);
 
         backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         nextButton.setText("Next");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout bottomLayout = new javax.swing.GroupLayout(bottom);
         bottom.setLayout(bottomLayout);
@@ -158,8 +172,259 @@ public class HomePatient extends javax.swing.JPanel {
         JPanel panel = new Test1();
         this.center.add(panel, BorderLayout.CENTER);
         this.center.setVisible(true);
-        
     }//GEN-LAST:event_startButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        if(this.i == 1) {
+            JOptionPane.showMessageDialog(this, "You are on the first question of the test");
+        }
+        else{
+            this.i--;
+            switch(this.i) {
+                case 1: {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test1();
+                   
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 2: {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test2();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 3: {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test3();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 4: {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test4();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 5: {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test5();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 6: {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test6();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 7: {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test7();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 8 : { 
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test8();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                            
+                    break;
+                }
+                case 9 : {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test9();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 10 : {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test10();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 11 : {
+                    this.center.removeAll();
+                    this.center.repaint();
+        
+                    JPanel panel = new Test11();
+                    this.center.add(panel, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                default : {
+                    
+                }
+            }
+        }
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        // TODO add your handling code here:
+        if (this.i == 12) {
+            JOptionPane.showMessageDialog(this, "You are on the last question of the test");
+        } else {
+            this.i++;
+            switch (this.i) {
+                case 2: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel2= new Test2();
+                    this.center.add(panel2, BorderLayout.CENTER);
+                    panel2.setVisible(true);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 3: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel3 = new Test3();
+                    this.center.add(panel3, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 4: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel4 = new Test4();
+                    this.center.add(panel4, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 5: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel5 = new Test5();
+                    this.center.add(panel5, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 6: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel6 = new Test6();
+                    this.center.add(panel6, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 7: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel7 = new Test7();
+                    this.center.add(panel7, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 8: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel8 = new Test8();
+                    this.center.add(panel8, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 9: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel9 = new Test9();
+                    this.center.add(panel9, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 10: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel10 = new Test10();
+                    this.center.add(panel10, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 11: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel11 = new Test11();
+                    this.center.add(panel11, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                case 12: {
+                    this.center.removeAll();
+                    this.center.repaint();
+
+                    JPanel panel12 = new Test12();
+                    this.center.add(panel12, BorderLayout.CENTER);
+                    this.center.setVisible(true);
+                    this.frame.pack();
+                    break;
+                }
+                default: {
+
+                }
+            }
+        }
+    }//GEN-LAST:event_nextButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

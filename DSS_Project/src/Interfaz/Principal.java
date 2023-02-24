@@ -25,7 +25,6 @@ import javax.swing.JPanel;
 public class Principal extends javax.swing.JFrame {
     
     private Conector con;
-    private JPanel home;
     public Patient patient;
     /**
      * Creates new form Principal
@@ -42,7 +41,7 @@ public class Principal extends javax.swing.JFrame {
         else{
             this.con.connect();
         }
-        this.home = this.container;
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -186,7 +185,7 @@ public class Principal extends javax.swing.JFrame {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        JPanel panel = new HomePatient(this.patient);
+        JPanel panel = new HomePatient(this.patient, this);
         this.container.add(panel, BorderLayout.CENTER);
         panel.setVisible(true);
         this.bar.setVisible(true);
