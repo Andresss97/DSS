@@ -4,18 +4,45 @@
  */
 package Interfaz;
 
+import Conexion.Conector;
+import Conexion.DBCreation;
+import Conexion.QuerysSelect;
+import Pojos.Patient;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.io.File;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  *
  * @author andre
  */
 public class Principal extends javax.swing.JFrame {
-
+    
+    private Conector con;
+    private JPanel home;
+    public Patient patient;
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
         this.bar.setVisible(false);
+        this.con = new Conector();
+        File url = new File(".//Database//DBproject.db");
+        if(!url.exists()) {
+            this.con.connect();
+            DBCreation.createDb(con);
+        }
+        else{
+            this.con.connect();
+        }
+        this.home = this.container;
     }
 
     /**
@@ -36,14 +63,16 @@ public class Principal extends javax.swing.JFrame {
         enterButton = new javax.swing.JButton();
         registerButton = new javax.swing.JButton();
         bar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        logMenu = new javax.swing.JMenu();
+        homeButton = new javax.swing.JMenuItem();
+        signOffButton = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
         setResizable(false);
 
         container.setBackground(java.awt.Color.white);
+        container.setPreferredSize(new java.awt.Dimension(500, 400));
         container.setLayout(new java.awt.BorderLayout());
 
         central.setBackground(java.awt.Color.white);
@@ -57,8 +86,18 @@ public class Principal extends javax.swing.JFrame {
         passwordLabel.setText("Password:");
 
         enterButton.setText("Enter");
+        enterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterButtonActionPerformed(evt);
+            }
+        });
 
         registerButton.setText("Register");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout centralLayout = new javax.swing.GroupLayout(central);
         central.setLayout(centralLayout);
@@ -76,7 +115,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGroup(centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(username)
                             .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centralLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(registerButton)
@@ -97,23 +136,70 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(enterButton)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         container.add(central, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(container, java.awt.BorderLayout.CENTER);
 
-        jMenu1.setText("File");
-        bar.add(jMenu1);
+        logMenu.setText("Menu");
 
-        jMenu2.setText("Edit");
-        bar.add(jMenu2);
+        homeButton.setText("Home");
+        logMenu.add(homeButton);
+
+        signOffButton.setText("Sign off");
+        signOffButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signOffButtonActionPerformed(evt);
+            }
+        });
+        logMenu.add(signOffButton);
+
+        bar.add(logMenu);
 
         setJMenuBar(bar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        // TODO add your handling code here:
+        JDialog panel = new JDialog(this, "Register", true);
+        panel.setSize(new Dimension(500,400));
+        panel.getContentPane().add(new RegisterPanel(this.con, panel));
+        panel.setVisible(true);
+        panel.pack();
+    }//GEN-LAST:event_registerButtonActionPerformed
+
+    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
+        // TODO add your handling code here:
+        this.container.removeAll();
+        this.container.repaint();
+        QuerysSelect qs = new QuerysSelect(this.con);
+        
+        try {
+            String value = this.password.getText();
+            System.out.println(value);
+            this.patient = qs.selectPatient(this.username.getText(), value);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        JPanel panel = new HomePatient(this.patient);
+        this.container.add(panel, BorderLayout.CENTER);
+        panel.setVisible(true);
+        this.bar.setVisible(true);
+        pack();
+    }//GEN-LAST:event_enterButtonActionPerformed
+
+    private void signOffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOffButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        JFrame frame = new Principal();
+        frame.setVisible(true);
+        pack();
+    }//GEN-LAST:event_signOffButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,16 +236,35 @@ public class Principal extends javax.swing.JFrame {
         });
     }
 
+    public JPanel getContainer() {
+        return container;
+    }
+
+    public void setContainer(JPanel container) {
+        this.container = container;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar bar;
     private javax.swing.JPanel central;
     private javax.swing.JPanel container;
     private javax.swing.JButton enterButton;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem homeButton;
+    private javax.swing.JMenu logMenu;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JButton registerButton;
+    private javax.swing.JMenuItem signOffButton;
     private javax.swing.JTextField username;
     private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
