@@ -38,6 +38,22 @@ public class Test {
         this.question_12 = "";
     }
 
+    public Test(String question_1, String question_2, String question_3, String question_4, String question_5, String question_6, String question_7, String question_8, String question_9, String question_10, String question_11, String question_12) {
+        this.question_1 = question_1;
+        this.question_2 = question_2;
+        this.question_3 = question_3;
+        this.question_4 = question_4;
+        this.question_5 = question_5;
+        this.question_6 = question_6;
+        this.question_7 = question_7;
+        this.question_8 = question_8;
+        this.question_9 = question_9;
+        this.question_10 = question_10;
+        this.question_11 = question_11;
+        this.question_12 = question_12;
+    }
+    
+    
     public int getID() {
         return ID;
     }

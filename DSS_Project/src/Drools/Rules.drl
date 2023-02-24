@@ -1,0 +1,11 @@
+
+import DSS_Project.Pojos.Test
+
+rule "severe case 1"
+    dialect "mvel"
+    when
+        op1 :  Test(no,no,no,no,no,yes,severe,yes,severe,yes,yes,yes)
+    then
+        System.out.println("Your case seems to be severe you should go to the hospital as soon as possible")
+        modify (op1) {severe = true}
+end
