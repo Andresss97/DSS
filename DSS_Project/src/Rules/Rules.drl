@@ -1,5 +1,5 @@
 
-import DSS_Project.Pojos.Test
+import Pojos.Test
 
 rule "severe case 1"
     dialect "mvel"

@@ -69,6 +69,7 @@ public class Principal extends javax.swing.JFrame {
         logMenu = new javax.swing.JMenu();
         homeButton = new javax.swing.JMenuItem();
         signOffButton = new javax.swing.JMenuItem();
+        infoMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
@@ -165,6 +166,9 @@ public class Principal extends javax.swing.JFrame {
         logMenu.add(signOffButton);
 
         bar.add(logMenu);
+
+        infoMenu.setText("Info");
+        bar.add(infoMenu);
 
         setJMenuBar(bar);
 
@@ -280,6 +284,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel container;
     private javax.swing.JButton enterButton;
     private javax.swing.JMenuItem homeButton;
+    private javax.swing.JMenu infoMenu;
     private javax.swing.JMenu logMenu;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordLabel;
