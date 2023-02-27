@@ -2,7 +2,7 @@
 import Pojos.Test
 
 rule "severe case 1"
-    dialect "mvel"
+    dialect "java"
     when
         op1 :  Test(no,no,no,no,no,yes,severe,yes,severe,yes,yes,yes)
     then

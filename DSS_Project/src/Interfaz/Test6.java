@@ -102,6 +102,7 @@ public class Test6 extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(buttonNo.isSelected()) {
             Principal.test.setQuestion_6("no");
+            Principal.test.setQuestion_7("not considered");
         }
     }//GEN-LAST:event_buttonNoActionPerformed
 

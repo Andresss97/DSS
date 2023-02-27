@@ -185,6 +185,9 @@ public class HomePatient extends javax.swing.JPanel {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
+        if((Principal.test.getQuestion_6().equals("no") && this.i == 8) || (Principal.test.getQuestion_8().equals("no") && this.i == 10)) {
+            this.i--;
+        }
         if(this.i == 1) {
             JOptionPane.showMessageDialog(this, "You are on the first question of the test");
         }
@@ -312,6 +315,9 @@ public class HomePatient extends javax.swing.JPanel {
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
+        if((Principal.test.getQuestion_6().equals("no") && this.i == 6) || (Principal.test.getQuestion_8().equals("no") && this.i == 8)) {
+            this.i++;
+        }
         if(this.checkQuestionAnswered(i) == false) {
             JOptionPane.showMessageDialog(this, "You have to answer the question before you advance");
             return;
@@ -323,12 +329,10 @@ public class HomePatient extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(HomePatient.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            
             //ExpertSystem es = new ExpertSystem();
             //es.executeRules(Principal.test);
 
-            JOptionPane.showMessageDialog(this, "Here are your results", "Results",1);
+            JOptionPane.showMessageDialog(this, "Here are your results: " + Principal.test.getScore(), "Results",1);
             Principal.patient.getTests().add(Principal.test);
             Principal.test = new Test();
             this.center.removeAll();
@@ -342,7 +346,8 @@ public class HomePatient extends javax.swing.JPanel {
             this.center.setVisible(true);
             this.frame.pack();
             
-        } else {
+        } 
+        else {
             this.i++;
             switch (this.i) {
                 case 2: {
@@ -554,6 +559,8 @@ public class HomePatient extends javax.swing.JPanel {
             }
         }
     }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel bottom;

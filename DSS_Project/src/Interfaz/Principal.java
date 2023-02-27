@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -70,6 +71,7 @@ public class Principal extends javax.swing.JFrame {
         homeButton = new javax.swing.JMenuItem();
         signOffButton = new javax.swing.JMenuItem();
         infoMenu = new javax.swing.JMenu();
+        buttonInfoTest = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
@@ -168,6 +170,15 @@ public class Principal extends javax.swing.JFrame {
         bar.add(logMenu);
 
         infoMenu.setText("Info");
+
+        buttonInfoTest.setText("Tests");
+        buttonInfoTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonInfoTestActionPerformed(evt);
+            }
+        });
+        infoMenu.add(buttonInfoTest);
+
         bar.add(infoMenu);
 
         setJMenuBar(bar);
@@ -181,28 +192,36 @@ public class Principal extends javax.swing.JFrame {
         panel.setSize(new Dimension(500,400));
         panel.getContentPane().add(new RegisterPanel(this.con, panel));
         panel.setVisible(true);
+
         panel.pack();
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         // TODO add your handling code here:
-        this.container.removeAll();
-        this.container.repaint();
         QuerysSelect qs = new QuerysSelect(this.con);
         
         try {
             String value = this.password.getText();
-            System.out.println(value);
             this.patient = qs.selectPatient(this.username.getText(), value);
         } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         
-        JPanel panel = new HomePatient(this, this.con);
-        this.container.add(panel, BorderLayout.CENTER);
-        panel.setVisible(true);
-        this.bar.setVisible(true);
-        pack();
+        if(this.patient.getName().isBlank()) {
+            JOptionPane.showMessageDialog(this, "Wrong username or password", "Wrong credentials", JOptionPane.ERROR_MESSAGE);
+            this.username.setText("");
+            this.password.setText("");
+        }
+        else {
+            this.container.removeAll();
+            this.container.repaint();
+
+            JPanel panel = new HomePatient(this, this.con);
+            this.container.add(panel, BorderLayout.CENTER);
+            panel.setVisible(true);
+            this.bar.setVisible(true);
+            pack();
+        }
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void signOffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOffButtonActionPerformed
@@ -224,6 +243,10 @@ public class Principal extends javax.swing.JFrame {
         this.bar.setVisible(true);
         pack();
     }//GEN-LAST:event_homeButtonActionPerformed
+
+    private void buttonInfoTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInfoTestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonInfoTestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,6 +303,7 @@ public class Principal extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar bar;
+    private javax.swing.JMenuItem buttonInfoTest;
     private javax.swing.JPanel central;
     private javax.swing.JPanel container;
     private javax.swing.JButton enterButton;

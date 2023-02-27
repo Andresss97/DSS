@@ -22,6 +22,7 @@ public class Test {
     private String question_10;
     private String question_11;
     private String question_12;
+    private int score;
     
     public Test() {
         this.question_1 = "";
@@ -36,23 +37,8 @@ public class Test {
         this.question_10 = "";
         this.question_11 = "";
         this.question_12 = "";
+        this.score = 0;
     }
-
-    public Test(String question_1, String question_2, String question_3, String question_4, String question_5, String question_6, String question_7, String question_8, String question_9, String question_10, String question_11, String question_12) {
-        this.question_1 = question_1;
-        this.question_2 = question_2;
-        this.question_3 = question_3;
-        this.question_4 = question_4;
-        this.question_5 = question_5;
-        this.question_6 = question_6;
-        this.question_7 = question_7;
-        this.question_8 = question_8;
-        this.question_9 = question_9;
-        this.question_10 = question_10;
-        this.question_11 = question_11;
-        this.question_12 = question_12;
-    }
-    
     
     public int getID() {
         return ID;
@@ -157,6 +143,111 @@ public class Test {
     public void setQuestion_12(String question_12) {
         this.question_12 = question_12;
     }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
     
-    
+    public void calculateScore() {
+        //Pregunta 1
+        if(this.question_1.equals("yes")) {
+            this.score += 1;
+        }
+        else {
+            this.score += 0;
+        }
+        //Pregunta 2
+        if(this.question_2.equals("yes")) {
+            this.score += 1;
+        }
+        else{
+            this.score += 0;
+        }
+        //Pregunta 3
+        if(this.question_3.equals("yes")) {
+            this.score += 1;
+        }
+        else{
+            this.score += 0;
+        }
+        //Pregunta 4
+        if(this.question_4.equals("yes")) {
+            this.score += 2;
+        }
+        else{
+            this.score += 0;
+        }
+        //Pregunta 5
+        if(this.question_5.equals("yes")) {
+            this.score += 2;
+        }
+        else{
+            this.score += 0;
+        }
+        //Pregunta 6
+        if(this.question_6.equals("yes")) {
+            this.score += 2;
+        }
+        else {
+            this.score += 0;
+        }
+        //Pregunta 7
+        if(this.question_7.equals("severe")) {
+            this.score+= 3;
+        }
+        else if(this.question_7.equals("moderate")){
+            this.score += 2;
+        }
+        else if(this.question_7.equals("slight")) {
+            this.score += 1;
+        }
+        else {
+            this.score += 0;
+        }
+        //Pregunta 8
+        if(this.question_8.equals("yes")) {
+            this.score += 3;
+        }
+        else{
+            this.score += 0;
+        }
+        //Pregunta 9
+        if(this.question_9.equals("severe")) {
+            this.score += 3;
+        }
+        else if(this.question_9.equals("moderate")) {
+            this.score += 2;
+        }
+        else if(this.question_9.equals("slight")){
+            this.score += 1;
+        }
+        else {
+            this.score += 0;
+        }
+        //Prgeunta 10
+        if(this.question_10.equals("yes")) {
+            this.score += 3;
+        }
+        else{
+            this.score += 0;
+        }
+        //Pregunta 11
+        if(this.question_11.equals("yes")) {
+            this.score += 1;
+        }
+        else{
+            this.score += 0;
+        }
+        //Pregunta 12
+        if(this.question_12.equals("yes")) {
+            this.score += 3;
+        }
+        else{
+            this.score += 0;
+        }
+    }
 }

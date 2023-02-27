@@ -96,6 +96,7 @@ public class Test12 extends javax.swing.JPanel {
         if(buttonYes.isSelected()) {
             Principal.test.setQuestion_12("yes");
         }
+        Principal.test.calculateScore();
     }//GEN-LAST:event_buttonYesActionPerformed
 
     private void buttonNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNoActionPerformed
@@ -103,6 +104,7 @@ public class Test12 extends javax.swing.JPanel {
         if(buttonNo.isSelected()) {
             Principal.test.setQuestion_12("no");
         }
+        Principal.test.calculateScore();
     }//GEN-LAST:event_buttonNoActionPerformed
 
 
