@@ -4,6 +4,7 @@
  */
 package Drools;
 
+import Pojos.Test;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
@@ -21,7 +22,9 @@ public class ExpertSystem {
         this.kc = ks.getKieClasspathContainer();
     }
     
-    public void executeRules() {
+    public void executeRules(Test test) {
         KieSession ksession = kc.newKieSession("EpilepsySession");
+        ksession.insert(test);
+        ksession.fireAllRules();
     }
 }
