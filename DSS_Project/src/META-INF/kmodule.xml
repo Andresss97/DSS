@@ -4,8 +4,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
 -->
 
-
-
 <kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.drools.org/xsd/kmodule">
     <kbase name = "Rules" packages = "Rules" >

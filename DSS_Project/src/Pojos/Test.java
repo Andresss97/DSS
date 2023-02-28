@@ -40,6 +40,10 @@ public class Test {
         this.score = 0;
     }
     
+    public Test(int score) {
+        this.score = score;
+    }
+    
     public int getID() {
         return ID;
     }

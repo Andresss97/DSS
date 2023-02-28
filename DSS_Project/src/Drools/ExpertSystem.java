@@ -26,7 +26,8 @@ public class ExpertSystem {
     
     public void executeRules(Test test) {
         KieSession ksession = kc.newKieSession("EpilepsySession");
-
+        System.out.println(kc.getKieBaseNames());
+        
         ksession.insert(test);
         ksession.fireAllRules();
     }

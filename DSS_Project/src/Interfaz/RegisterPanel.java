@@ -68,6 +68,15 @@ public class RegisterPanel extends javax.swing.JPanel {
         labelName.setForeground(java.awt.Color.black);
         labelName.setText("Name:");
 
+        name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nameFocusLost(evt);
+            }
+        });
+
         labelSurname.setBackground(java.awt.Color.white);
         labelSurname.setForeground(java.awt.Color.black);
         labelSurname.setText("Surname:");
@@ -174,11 +183,11 @@ public class RegisterPanel extends javax.swing.JPanel {
 
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
         // TODO add your handling code here:
+
         QuerysInsert qi = new QuerysInsert(this.con);
         Patient patient = new Patient();
         patient.setName(this.name.getText());
         patient.setSurname(this.surname.getText());
-        System.out.println(this.age.getSelectedItem());
         Object object = this.age.getSelectedItem();
         String value = (String) object;
         int v = Integer.parseInt(value);
@@ -193,6 +202,10 @@ public class RegisterPanel extends javax.swing.JPanel {
         patient.setUsername(username.getText());
         patient.setPassword(password.getText());
         
+        if(this.validatePatient(patient) == false) {
+            JOptionPane.showMessageDialog(this, "There seems to be some values that need to be filled", "Credentials needed", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             qi.registerPatient(patient);
         } catch (SQLException ex) {
@@ -201,8 +214,37 @@ public class RegisterPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Register done");
         this.dialog.dispose();
     }//GEN-LAST:event_RegisterActionPerformed
+    
+    
+    private void nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameFocusGained
 
+    private void nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameFocusLost
+        // TODO add your handling code here:
 
+    }//GEN-LAST:event_nameFocusLost
+    
+    public boolean validatePatient(Patient patient) {
+        if(patient.getName().isBlank()) {
+            return false;
+        }
+        else if(patient.getSurname().isBlank()){
+            return false;
+        }
+        else if(this.femaleButton.isSelected() == false && this.maleButton.isSelected() == false) {
+            return false;
+        }
+        else if(patient.getUsername().isBlank()) {
+            return false;
+        }
+        else if(patient.getPassword().isBlank()) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Register;
     private javax.swing.JComboBox<String> age;

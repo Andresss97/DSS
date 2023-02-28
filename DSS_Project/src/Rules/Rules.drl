@@ -1,11 +1,18 @@
 
 import Pojos.Test
 
-rule "severe case 1"
+rule "slight case"
     dialect "java"
     when
-        op1 :  Test(no,no,no,no,no,yes,severe,yes,severe,yes,yes,yes)
+        op1 :  Test(score < 8)
     then
-        System.out.println("Your case seems to be severe you should go to the hospital as soon as possible")
-        modify (op1) {severe = true}
+        System.out.println("Your case seems to be slight");
+end
+
+rule "severe case"
+    dialect "java"
+    when
+        op2 : Test(score > 16)
+    then
+        System.out.println("Your case seems to severe you should o to the hospital as soon as possible");
 end
