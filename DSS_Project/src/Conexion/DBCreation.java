@@ -54,7 +54,7 @@ public abstract class DBCreation {
             st = con.getConnect().createStatement();
             
             in = "CREATE TABLE TEST (ID integer PRIMARY KEY AUTOINCREMENT NOT NULL,"
-                    + " QUESTION1 varchar(10), QUESTION2 varchar(10), QUESTION3 varchar(10),"
+                    + " QUESTION1 int, QUESTION2 varchar(10), QUESTION3 varchar(10),"
                     + " QUESTION4 varchar(10), QUESTION5 varchar(10), QUESTION6 varchar(10),"
                     + " QUESTION7 varchar(10), QUESTION8 varchar(10), QUESTION9 varchar(10),"
                     + " QUESTION10 varchar(10), QUESTION11 varchar(10),"

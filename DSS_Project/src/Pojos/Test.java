@@ -10,7 +10,7 @@ package Pojos;
  */
 public class Test {
     private int ID;
-    private String question_1;
+    private int question_1;
     private String question_2;
     private String question_3;
     private String question_4;
@@ -25,7 +25,7 @@ public class Test {
     private int score;
     
     public Test() {
-        this.question_1 = "";
+        this.question_1 = 0;
         this.question_2 = "";
         this.question_3 = "";
         this.question_4 = "";
@@ -52,11 +52,11 @@ public class Test {
         this.ID = ID;
     }
 
-    public String getQuestion_1() {
+    public int getQuestion_1() {
         return question_1;
     }
 
-    public void setQuestion_1(String question_1) {
+    public void setQuestion_1(int question_1) {
         this.question_1 = question_1;
     }
 
@@ -158,11 +158,17 @@ public class Test {
     
     public void calculateScore() {
         //Pregunta 1
-        if(this.question_1.equals("yes")) {
+        if(this.question_1 >= 36 && this.question_1 <= 37) {
+            this.score += 0;
+        }
+        else if(this.question_1 > 37 && this.question_1 <= 38){
             this.score += 1;
         }
+        else if(this.question_1 > 38 && this.question_1 <= 39) {
+            this.score += 2;
+        }
         else {
-            this.score += 0;
+            this.score += 3;
         }
         //Pregunta 2
         if(this.question_2.equals("yes")) {

@@ -48,7 +48,7 @@ public class QuerysInsert {
                 + "question5,question6,question7,question8,question9,"
                 + "question10,question11,question12, idpatient) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement st = this.con.getConnect().prepareStatement(query);
-        st.setString(1, test.getQuestion_1());
+        st.setInt(1, test.getQuestion_1());
         st.setString(2, test.getQuestion_2());
         st.setString(3, test.getQuestion_3());
         st.setString(4, test.getQuestion_4());

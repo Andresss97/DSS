@@ -60,7 +60,7 @@ public class QuerysSelect {
         
         while(set.next()) {
             Test test = new Test();
-            test.setQuestion_1(set.getString("question1"));
+            test.setQuestion_1(set.getInt("question1"));
             test.setQuestion_2(set.getString("question2"));
             test.setQuestion_3(set.getString("question3"));
             test.setQuestion_4(set.getString("question4"));

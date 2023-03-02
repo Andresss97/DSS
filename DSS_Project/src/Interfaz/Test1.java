@@ -17,11 +17,17 @@ public class Test1 extends javax.swing.JPanel {
      */
     public Test1() {
         initComponents();
-        if(Principal.test.getQuestion_1().equals("yes")) {
-               this.buttonYes.setSelected(true);
+        if(Principal.test.getQuestion_1() >= 36 && Principal.test.getQuestion_1() <= 37) {
+            this.feverValues.setValue(Principal.test.getQuestion_1());
         }
-        else if(Principal.test.getQuestion_1().equals("no")) {
-            this.buttonNo.setSelected(true);
+        else if(Principal.test.getQuestion_1() > 37 && Principal.test.getQuestion_1() <= 38) {
+            this.feverValues.setValue(Principal.test.getQuestion_1());
+        }
+        else if(Principal.test.getQuestion_1() > 38 && Principal.test.getQuestion_1() <= 39) {
+            this.feverValues.setValue(Principal.test.getQuestion_1());
+        }
+        else{
+            this.feverValues.setValue(Principal.test.getQuestion_1());
         }
     }
 
@@ -36,8 +42,7 @@ public class Test1 extends javax.swing.JPanel {
 
         yesNoGroup = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        buttonYes = new javax.swing.JRadioButton();
-        buttonNo = new javax.swing.JRadioButton();
+        feverValues = new javax.swing.JSlider();
 
         setBackground(java.awt.Color.white);
         setForeground(java.awt.Color.black);
@@ -45,23 +50,17 @@ public class Test1 extends javax.swing.JPanel {
         jLabel1.setForeground(java.awt.Color.black);
         jLabel1.setText("Do you suffer from high fever recently?");
 
-        buttonYes.setBackground(java.awt.Color.white);
-        yesNoGroup.add(buttonYes);
-        buttonYes.setForeground(java.awt.Color.black);
-        buttonYes.setText("Yes");
-        buttonYes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonYesActionPerformed(evt);
-            }
-        });
-
-        buttonNo.setBackground(java.awt.Color.white);
-        yesNoGroup.add(buttonNo);
-        buttonNo.setForeground(java.awt.Color.black);
-        buttonNo.setText("No");
-        buttonNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonNoActionPerformed(evt);
+        feverValues.setBackground(java.awt.Color.white);
+        feverValues.setForeground(java.awt.Color.black);
+        feverValues.setMajorTickSpacing(1);
+        feverValues.setMaximum(40);
+        feverValues.setMinimum(36);
+        feverValues.setPaintLabels(true);
+        feverValues.setPaintTicks(true);
+        feverValues.setValue(36);
+        feverValues.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                feverValuesStateChanged(evt);
             }
         });
 
@@ -72,12 +71,8 @@ public class Test1 extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(buttonYes)
-                        .addGap(56, 56, 56)
-                        .addComponent(buttonNo))
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(feverValues, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -85,32 +80,20 @@ public class Test1 extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(160, 160, 160)
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonYes)
-                    .addComponent(buttonNo))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(feverValues, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonYesActionPerformed
+    private void feverValuesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_feverValuesStateChanged
         // TODO add your handling code here:
-        if(this.buttonYes.isSelected()) {
-            Principal.test.setQuestion_1("yes");
-        }
-    }//GEN-LAST:event_buttonYesActionPerformed
-
-    private void buttonNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNoActionPerformed
-        // TODO add your handling code here:
-        if(this.buttonNo.isSelected()) {
-            Principal.test.setQuestion_1("no");
-        }
-    }//GEN-LAST:event_buttonNoActionPerformed
+        Principal.test.setQuestion_1(this.feverValues.getValue());
+    }//GEN-LAST:event_feverValuesStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton buttonNo;
-    private javax.swing.JRadioButton buttonYes;
+    private javax.swing.JSlider feverValues;
     private javax.swing.JLabel jLabel1;
     private javax.swing.ButtonGroup yesNoGroup;
     // End of variables declaration//GEN-END:variables
