@@ -8,7 +8,9 @@ import Conexion.Conector;
 import Conexion.QuerysInsert;
 import Pojos.Patient;
 import Pojos.Patient.GENDER;
+import Security.Encriptor;
 import java.awt.BorderLayout;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -207,8 +209,12 @@ public class RegisterPanel extends javax.swing.JPanel {
             return;
         }
         try {
+            Encriptor encrypt = new Encriptor();
+            
             qi.registerPatient(patient);
         } catch (SQLException ex) {
+            Logger.getLogger(RegisterPanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(RegisterPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(this, "Register done");
