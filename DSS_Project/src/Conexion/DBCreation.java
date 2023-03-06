@@ -27,7 +27,7 @@ public abstract class DBCreation {
             in = "CREATE TABLE PATIENT " + "(ID integer PRIMARY KEY AUTOINCREMENT NOT NULL,"
                     + "NAME varchar(20) NOT NULL,SURNAME varchar(20) NOT NULL,"
                     + "AGE int NOT NULL, GENDER varchar(20), USERNAME varchar(50) NOT NULL,"
-                    + "PASSWORD blob NOT NULL)";
+                    + "PASSWORD text NOT NULL)";
             
             st.execute(in);
         }

@@ -29,7 +29,7 @@ public class Patient {
         this.name = "";
         this.surname = "";
         this.username = "";
-        this.password = "";
+        this.password = null;
         this.age = 0;
         this.gender = GENDER.FEMALE;
         this.tests = new ArrayList();

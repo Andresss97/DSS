@@ -210,7 +210,9 @@ public class RegisterPanel extends javax.swing.JPanel {
         }
         try {
             Encriptor encrypt = new Encriptor();
-            
+            String passEncryot = encrypt.encrypt(this.password.getText());
+            patient.setPassword(passEncryot);
+           
             qi.registerPatient(patient);
         } catch (SQLException ex) {
             Logger.getLogger(RegisterPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -244,7 +246,7 @@ public class RegisterPanel extends javax.swing.JPanel {
         else if(patient.getUsername().isBlank()) {
             return false;
         }
-        else if(patient.getPassword().isBlank()) {
+        else if(patient.getPassword() == null) {
             return false;
         }
         else {

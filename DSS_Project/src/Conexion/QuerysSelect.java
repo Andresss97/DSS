@@ -8,6 +8,7 @@ import Pojos.Patient.GENDER;
 import Pojos.Test;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 /**
  *
@@ -23,7 +24,7 @@ public class QuerysSelect {
     public Patient selectPatient(String username, String password) throws SQLException {
         Patient patient = new Patient();
         String query = "";
-        query = "SELECT * from patient where username = '" + username + "' and password = '" + password + "'";
+        query = "SELECT * from patient where username = '" + username + "' and password = '" + password +"'";
         PreparedStatement st = this.con.getConnect().prepareStatement(query);
         
         ResultSet set = st.executeQuery();
@@ -39,7 +40,7 @@ public class QuerysSelect {
                 patient.setGender(GENDER.FEMALE);
             }
             patient.setUsername(set.getString("username"));
-            patient.setPassword(set.getString("password"));
+            patient.setPassword((set.getString("password")));
             patient.setID(set.getInt("id"));
         }
         

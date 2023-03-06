@@ -9,9 +9,11 @@ import Conexion.DBCreation;
 import Conexion.QuerysSelect;
 import Pojos.Patient;
 import Pojos.Test;
+import Security.Encriptor;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.File;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -202,9 +204,15 @@ public class Principal extends javax.swing.JFrame {
         
         try {
             String value = this.password.getText();
-            this.patient = qs.selectPatient(this.username.getText(), value);
+            Encriptor encrypt = new Encriptor();
+            String passEncrypt = encrypt.encrypt(value);
+            
+            this.patient = qs.selectPatient(this.username.getText(), passEncrypt);
+
         } catch (SQLException ex) {
             
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         if(this.patient.getName().isBlank()) {
