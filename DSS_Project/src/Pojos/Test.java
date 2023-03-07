@@ -23,6 +23,7 @@ public class Test {
     private String question_11;
     private String question_12;
     private int score;
+    private String droolsAnswer;
     
     public Test() {
         this.question_1 = 0;
@@ -154,6 +155,14 @@ public class Test {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public String getDroolsAnswer() {
+        return droolsAnswer;
+    }
+
+    public void setDroolsAnswer(String droolsAnswer) {
+        this.droolsAnswer = droolsAnswer;
     }
     
     public void calculateScore() {

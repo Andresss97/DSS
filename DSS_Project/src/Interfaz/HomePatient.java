@@ -329,10 +329,11 @@ public class HomePatient extends javax.swing.JPanel {
             } catch (SQLException ex) {
                 Logger.getLogger(HomePatient.class.getName()).log(Level.SEVERE, null, ex);
             }
+
             ExpertSystem es = new ExpertSystem();
             es.executeRules(Principal.test);
-
-            JOptionPane.showMessageDialog(this, "Here are your results: " + Principal.test.getScore(), "Results",1);
+            JOptionPane.showMessageDialog(null, "Results: "  + Principal.test.getScore() + "\n"+ Principal.test.getDroolsAnswer(), "Results",1);
+            
             Principal.patient.getTests().add(Principal.test);
             Principal.test = new Test();
             this.center.removeAll();

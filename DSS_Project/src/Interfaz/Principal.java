@@ -72,8 +72,6 @@ public class Principal extends javax.swing.JFrame {
         logMenu = new javax.swing.JMenu();
         homeButton = new javax.swing.JMenuItem();
         signOffButton = new javax.swing.JMenuItem();
-        infoMenu = new javax.swing.JMenu();
-        buttonInfoTest = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.Color.white);
@@ -171,18 +169,6 @@ public class Principal extends javax.swing.JFrame {
 
         bar.add(logMenu);
 
-        infoMenu.setText("Info");
-
-        buttonInfoTest.setText("Tests");
-        buttonInfoTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonInfoTestActionPerformed(evt);
-            }
-        });
-        infoMenu.add(buttonInfoTest);
-
-        bar.add(infoMenu);
-
         setJMenuBar(bar);
 
         pack();
@@ -252,10 +238,6 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void buttonInfoTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInfoTestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonInfoTestActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -311,12 +293,10 @@ public class Principal extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar bar;
-    private javax.swing.JMenuItem buttonInfoTest;
     private javax.swing.JPanel central;
     private javax.swing.JPanel container;
     private javax.swing.JButton enterButton;
     private javax.swing.JMenuItem homeButton;
-    private javax.swing.JMenu infoMenu;
     private javax.swing.JMenu logMenu;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordLabel;
