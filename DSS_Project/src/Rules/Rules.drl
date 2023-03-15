@@ -4,7 +4,7 @@ import Pojos.Test
 rule "slight case"
     dialect "java"
     when
-        op1 :  Test(score < 9)
+        op1 :  Test(score <= 9)
         
     then
         op1.setDroolsAnswer("Your case seems to be slight");
@@ -13,7 +13,7 @@ end
 rule "moderate case"
     dialect "java"
     when
-        op2 : Test(score > 9 && score < 18)
+        op2 : Test(score > 9 && score <= 18)
     then
         op2.setDroolsAnswer("Your case seems to moderate you should take some precautions");
 end
