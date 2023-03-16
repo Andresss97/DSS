@@ -15,7 +15,7 @@ rule "moderate case"
     when
         op2 : Test(score > 9 && score <= 18)
     then
-        op2.setDroolsAnswer("Your case seems to moderate you should take some precautions");
+        op2.setDroolsAnswer("Your case seems to be moderate you should take some precautions");
 end
 
 rule "severe case"

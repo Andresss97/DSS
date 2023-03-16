@@ -45,7 +45,7 @@ public class Test9 extends javax.swing.JPanel {
         setForeground(java.awt.Color.black);
 
         jLabel1.setForeground(java.awt.Color.black);
-        jLabel1.setText("How intense would you say this episodes are?");
+        jLabel1.setText("How intense would you say these episodes are?");
 
         buttonSlight.setBackground(java.awt.Color.white);
         yesNoGroup.add(buttonSlight);

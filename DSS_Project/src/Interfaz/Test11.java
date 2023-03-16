@@ -41,7 +41,7 @@ public class Test11 extends javax.swing.JPanel {
         setForeground(java.awt.Color.black);
 
         jLabel1.setForeground(java.awt.Color.black);
-        jLabel1.setText("Have you been exposed to intermitent lights recently?");
+        jLabel1.setText("Have you been exposed to intermittent lights recently?");
 
         buttonYes.setBackground(java.awt.Color.white);
         yesNoGroup.add(buttonYes);
